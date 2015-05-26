@@ -9,10 +9,10 @@ env_dir     = ARGV[2]
 static_json = "#{build_dir}/static.json"
 
 if File.directory?(env_dir) && File.exist?(static_json)
-  json = JSON.parse(static.json)
+  json = JSON.parse(File.read(static_json))
   if json["proxies"]
     File.open("#{env_dir}/API_URL", "w") do |file|
-      value = json["proxies"].values.first
+      value = json["proxies"].values.first["origin"]
       puts "-----> Writing ENV VAR API_URL: #{value}"
       file.print value
     end
