@@ -14,8 +14,8 @@ if File.exist?(static_json)
   if json["proxies"]
     File.open(export, 'w') do |file|
       value = json["proxies"].keys.first
-      puts "-----> Writing ENV VAR API_URL: #{value}"
-      file.print "export API_URL=\"#{value}\""
+      puts "-----> Writing ENV VAR HEROKU_API_PATH: #{value}"
+      file.print "export HEROKU_API_PATH=\"#{value}\""
     end
   end
 end
