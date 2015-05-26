@@ -16,5 +16,7 @@ if File.directory?(env_dir) && File.exist?(static_json)
       puts "-----> Writing ENV VAR API_URL: #{value}"
       file.print value
     end
+    cmd = `ls -l #{env_dir}`
+    puts "-----> ENV DIR:\n#{cmd}"
   end
 end
