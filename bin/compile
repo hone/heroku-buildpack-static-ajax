@@ -12,7 +12,9 @@ if File.directory?(env_dir) && File.exist?(static_json)
   json = JSON.parse(static.json)
   if json["proxies"]
     File.open("#{env_dir}/API_URL", "w") do |file|
-      file.print json["proxies"].values.first
+      value = json["proxies"].values.first
+      puts "-----> Writing ENV VAR API_URL: #{value}"
+      file.print value
     end
   end
 end
